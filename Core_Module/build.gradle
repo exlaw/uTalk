@@ -1,0 +1,34 @@
+apply plugin: 'application'
+
+mainClassName = 'viewer.MainDemo'
+
+repositories {
+    repositories {
+        maven{ url 'http://maven.aliyun.com/nexus/content/groups/public/'}
+    }
+}
+
+dependencies {
+    compile 'com.jfoenix:jfoenix:8.0.8' // Java 8
+    // NOTE: the latest version _is_ 8.0.1!
+    // 8.0.7 was published by mistake
+    compile 'io.datafx:datafx:8.0.1'
+    compile 'io.datafx:flow:8.0.1'
+
+    // FontAwesome (Bintray)
+    compile 'de.jensd:fontawesomefx-fontawesome:4.6.3'
+    compile 'de.jensd:fontawesomefx-commons:8.12'
+    compile 'com.google.code.gson:gson:2.8.0'
+    
+    // Kademlia
+    compile 'org.slf4j:slf4j-api:1.7.21'
+    compile 'org.slf4j:slf4j-nop:1.7.24'
+    testCompile 'junit:junit:4.12'
+    testCompile 'org.hamcrest:hamcrest-all:1.3'
+    annotationProcessor 'org.projectlombok:lombok:1.18.2'
+    compileOnly 'org.projectlombok:lombok:1.18.2'
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
